@@ -55,22 +55,22 @@ productRouter.delete("/delete/:productID", async (req, res) => {
 })
 
 
-// productRouter.get("/:catrgory", async (req, res) => {
-//     const catrgory = req.params.catrgory;
-//     console.log(catrgory);
-//     let product = []
+productRouter.get("/:catrgory", async (req, res) => {
+    const catrgory = req.params.catrgory;
+    console.log(catrgory);
+    let product = []
   
-//     if (catrgory === "Off_roading") {
-//        product = await ProductModel.find({ catrgory: "Off_roading" });
-//       console.log(product);
-//       res.send(product);
-//     } else if (catrgory === "Electric") {
-//       product = await ProductModel.find({ catrgory: "Electric" });
-//       res.send(product);
-//       // console.log(product);
-//     } else if (catrgory === "Kid") {
-//       product = await ProductModel.find({ catrgory: "Kid" });
-//       res.send(product);
-//     }
-//   });
+    if (catrgory === "Off_roading") {
+       product = await ProductModel.find({ catrgory: "Off_roading" });
+      console.log(product);
+      res.send(product);
+    } else if (catrgory === "Electric") {
+      product = await ProductModel.find({ catrgory: "Electric" });
+      res.send(product);
+      // console.log(product);
+    } else if (catrgory === "Kid") {
+      product = await ProductModel.find({ catrgory: "Kid" });
+      res.send(product);
+    }
+  });
 module.exports = {productRouter}
