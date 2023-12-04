@@ -5,16 +5,8 @@ const { UserModel } = require("../models/User.model");
 const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
-  const {catrgory} = req.query
-  if(catrgory){
-    console.log("Category is "+ catrgory);
-    return res.send(catrgory)
-  }else{
-    console.log("Not found");
-    return res.send("Opps")
-  }
-    // const products =  await ProductModel.find({})
-    // res.send({products : products})
+    const products =  await ProductModel.find({})
+    res.send({products : products})
 })
 
 
@@ -62,24 +54,23 @@ productRouter.delete("/delete/:productID", async (req, res) => {
     res.send({message : `Product item  ${productID} deleted`})
 })
 
+
 // productRouter.get("/:catrgory", async (req, res) => {
-//   let products = [];
-//   const catrgory = req.params.catrgory;
-//   console.log(catrgory);
-//   if (catrgory === "Kid") {
-//     products = await ProductModel.find({ catrgory: "Kid" });
-//   } else if (catrgory === "Off_roading") {
-//     products = await ProductModel.find({ catrgory: "Off_roading" });
-//   } else if (catrgory === "Electric") {
-//     products = await ProductModel.find({ catrgory: "Electric" });
-//   }
-//   if (products.length > 0) {
-//     res.json({ status: "success", data: products });
-//   } else {
-//     res.json({ status: "Invalid Request No Data Found", data: products });
-//   }
-// });
-
-
-
+//     const catrgory = req.params.catrgory;
+//     console.log(catrgory);
+//     let product = []
+  
+//     if (catrgory === "Off_roading") {
+//        product = await ProductModel.find({ catrgory: "Off_roading" });
+//       console.log(product);
+//       res.send(product);
+//     } else if (catrgory === "Electric") {
+//       product = await ProductModel.find({ catrgory: "Electric" });
+//       res.send(product);
+//       // console.log(product);
+//     } else if (catrgory === "Kid") {
+//       product = await ProductModel.find({ catrgory: "Kid" });
+//       res.send(product);
+//     }
+//   });
 module.exports = {productRouter}
